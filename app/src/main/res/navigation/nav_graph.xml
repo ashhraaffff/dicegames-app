@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph.xml"
+    app:startDestination="@id/walletFragment">
+    <fragment
+        android:id="@+id/gamesFragment"
+        android:name="androidsamples.java.dicegames.GamesFragment"
+        android:label="fragment_games"
+        tools:layout="@layout/fragment_games" />
+    <fragment
+        android:id="@+id/walletFragment"
+        android:name="androidsamples.java.dicegames.WalletFragment"
+        android:label="fragment_wallet"
+        tools:layout="@layout/fragment_wallet" >
+        <action
+            android:id="@+id/action_walletFragment_to_gamesFragment"
+            app:destination="@id/gamesFragment" />
+    </fragment>
+</navigation>
