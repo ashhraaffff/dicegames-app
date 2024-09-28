@@ -65,4 +65,20 @@ public class WalletFragment extends Fragment {
         txtBalance.setText(String.valueOf(vm.getBalance()));
     }
 
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause in WalletFragment");
+        DiceGamesPrefs.setBalance(requireActivity(), vm.getBalance());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume in WalletFragment");
+        vm.setBalance(DiceGamesPrefs.balance(requireActivity()));
+        txtBalance.setText(String.valueOf(vm.getBalance()));
+        updateUI();
+    }
 }

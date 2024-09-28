@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +24,7 @@ import android.widget.Toast;
  * A {@link Fragment} that implements the Game Play screen.
  */
 public class GamesFragment extends Fragment {
+    private static final String TAG = "GamesFragment";
 
     private GamesViewModel vm;
     private Button btn_go, btn_info , btn_die1 , btn_die2 , btn_die3 , btn_die4;
@@ -129,5 +131,19 @@ public class GamesFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause in GameFragment");
+        DiceGamesPrefs.setBalance(requireActivity(), vm.getBalance());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume in GameFragment");
+        vm.setBalance(DiceGamesPrefs.balance(requireActivity()));
     }
 }
