@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="zero">0</string>
-    <string name="coins">Coins</string>
+    <string name="coins">Coins:</string>
     <string name="to_games">To Games</string>
     <string name="congrats">Congratulations!</string>
 </resources>

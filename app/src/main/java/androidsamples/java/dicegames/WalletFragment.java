@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * A {@link Fragment} that implements the Wallet screen.
@@ -22,6 +24,9 @@ public class WalletFragment extends Fragment {
 
     private static final String TAG = "WalletFragment";
     private GamesViewModel vm;
+
+    private TextView txtBalance;
+    private Button btn_die;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,15 +39,30 @@ public class WalletFragment extends Fragment {
         vm = new ViewModelProvider(requireActivity()).get(GamesViewModel.class);
         Log.d(TAG, "VM: " + vm);
 
+        btn_die = view.findViewById(R.id.btn_die);
+        txtBalance = view.findViewById(R.id.txt_balance);
+
+        updateUI();
+
         view.findViewById(R.id.btn_die).setOnClickListener(v -> {
-            Log.d(TAG, "Rolled");
+            vm.rollWalletDie();
+            Log.d(TAG, "Rolled a "+vm.dieValue());
+            updateUI();
         });
 
         view.findViewById(R.id.btn_games).setOnClickListener(v -> {
             Log.d(TAG, "Going to GamesFragment");
-            NavDirections a = WalletFragmentDirections.actionWalletFragmentToGamesFragment();
-            Navigation.findNavController(view).navigate(a);
+            Navigation.findNavController(view).navigate(R.id.action_walletFragment_to_gamesFragment);
         });
+    }
+
+
+    /**
+     * Updates the UI with the current die value and balance from the ViewModel.
+     */
+    private void updateUI() {
+        btn_die.setText(String.valueOf(vm.dieValue()));
+        txtBalance.setText(String.valueOf(vm.getBalance()));
     }
 
 }

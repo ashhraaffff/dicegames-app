@@ -9,9 +9,11 @@ public class GamesViewModel extends ViewModel {
     public int balance;
     private Die mDie;
     private int mDieValue;
-    public GameType gameType;
-    private int wager;
     public int[] diceV;
+
+    private int wager;
+
+    public GameType gameType;
     public GameResult gameResult;
     /**
      * The no argument constructor.
