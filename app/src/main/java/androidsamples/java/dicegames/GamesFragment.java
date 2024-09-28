@@ -86,12 +86,16 @@ public class GamesFragment extends Fragment {
         }
 
         int selectedRadioId = group_alike.getCheckedRadioButtonId();
+        int alikeMultiplier = 1;
 
         if (selectedRadioId == R.id.rb_two_alike) {
+            alikeMultiplier = 2;
             vm.setGameType(GameType.TWO_ALIKE);
         } else if (selectedRadioId == R.id.rb_three_alike) {
+            alikeMultiplier = 3;
             vm.setGameType(GameType.THREE_ALIKE);
         } else if (selectedRadioId == R.id.rb_four_alike) {
+            alikeMultiplier = 4;
             vm.setGameType(GameType.FOUR_ALIKE);
         } else {
             Toast.makeText(getActivity(), "Please select an alike option", Toast.LENGTH_SHORT).show();
@@ -110,10 +114,10 @@ public class GamesFragment extends Fragment {
 
         switch(gameResult) {
             case WIN:
-                Toast.makeText(getActivity(), "You won! " + vm.getWager() + " coins", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "You won! " + vm.getWager()*alikeMultiplier + " coins", Toast.LENGTH_SHORT).show();
                 break;
             case LOSS:
-                Toast.makeText(getActivity(), "You lost! " + vm.getWager() + " coins", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "You lost! " + vm.getWager()*alikeMultiplier + " coins", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
