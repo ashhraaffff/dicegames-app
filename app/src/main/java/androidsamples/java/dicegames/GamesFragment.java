@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +58,9 @@ public class GamesFragment extends Fragment {
         updateCoinsDisplay();
 
         btn_go.setOnClickListener(v-> onGoClicked());
-        btn_info.setOnClickListener(v->{});
+        btn_info.setOnClickListener(v->{
+            Navigation.findNavController(view).navigate(R.id.action_gamesFragment_to_infoFragment);
+        });
         return view;
     }
 

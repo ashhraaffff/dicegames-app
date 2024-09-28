@@ -4,11 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
     app:startDestination="@id/walletFragment">
+
     <fragment
         android:id="@+id/gamesFragment"
         android:name="androidsamples.java.dicegames.GamesFragment"
         android:label="fragment_games"
-        tools:layout="@layout/fragment_games" />
+        tools:layout="@layout/fragment_games" >
+        <action
+            android:id="@+id/action_gamesFragment_to_infoFragment"
+            app:destination="@id/infoFragment" />
+    </fragment>
     <fragment
         android:id="@+id/walletFragment"
         android:name="androidsamples.java.dicegames.WalletFragment"
@@ -17,5 +22,14 @@
         <action
             android:id="@+id/action_walletFragment_to_gamesFragment"
             app:destination="@id/gamesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="androidsamples.java.dicegames.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" >
+        <action
+            android:id="@+id/action_infoFragment_self"
+            app:destination="@id/infoFragment" />
     </fragment>
 </navigation>
