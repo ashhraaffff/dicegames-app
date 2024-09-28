@@ -83,6 +83,10 @@ public class GamesViewModel extends ViewModel {
     }
 
     public void increaseBalance(int amount){
+        if(amount>0 && balance >= Integer.MAX_VALUE - amount) {
+            balance=Integer.MAX_VALUE;
+            return;
+        }
         balance+=amount;
     }
 
@@ -101,7 +105,7 @@ public class GamesViewModel extends ViewModel {
     }
 
     public boolean isValidWager(){
-        if(wager==0) return false;
+        if(wager<=0) return false;
         switch(gameType){
             case NONE:return true;
             case TWO_ALIKE:return (wager*2<=balance);

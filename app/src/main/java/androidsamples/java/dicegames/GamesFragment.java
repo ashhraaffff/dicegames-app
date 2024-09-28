@@ -63,13 +63,22 @@ public class GamesFragment extends Fragment {
 
     private void onGoClicked() {
         String wagerInput = edt_wager.getText().toString();
-        if (wagerInput.isEmpty()) {
+        if (wagerInput.isEmpty() || wagerInput.trim().isEmpty()) {
             Toast.makeText(getActivity(), "Please enter a wager amount", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        int wager = Integer.parseInt(wagerInput);
-        vm.setWager(wager);
+        try {
+            int wager = Integer.parseInt(wagerInput);
+            if (wager <= 0) {
+                Toast.makeText(getActivity(), "Wager must be a positive integer", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            vm.setWager(wager);
+        } catch (NumberFormatException e) {
+            Toast.makeText(getActivity(), "Invalid wager input: must be a valid integer", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         int selectedRadioId = group_alike.getCheckedRadioButtonId();
 

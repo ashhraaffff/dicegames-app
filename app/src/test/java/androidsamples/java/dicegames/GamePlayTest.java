@@ -62,6 +62,12 @@ public class GamePlayTest {
         m.setWager(0);
         assertThat(m.isValidWager(), is(false));
     }
+    @Test
+    public void negativeWagerisInvalid() {
+        m.setWager(-10);
+        assertThat(m.isValidWager(), is(false));
+    }
+
 
     @Test
     public void callingPlayWithoutSettingWagerThrowsException() {
