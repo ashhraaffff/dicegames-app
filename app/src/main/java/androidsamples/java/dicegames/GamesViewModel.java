@@ -21,10 +21,10 @@ public class GamesViewModel extends ViewModel {
     public GamesViewModel() {
         mDie = new Die6();
         balance = 0;
-        mDieValue = 0;
+        mDieValue = 5;
         gameType=GameType.NONE;
         gameResult=GameResult.UNDECIDED;
-        diceV=new int[4];
+        diceV= new int[]{6, 6, 6, 6};
         wager=0;
     }
 

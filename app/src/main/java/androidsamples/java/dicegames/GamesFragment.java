@@ -58,6 +58,7 @@ public class GamesFragment extends Fragment {
         edt_wager = view.findViewById(R.id.et_wager);
 
         updateCoinsDisplay();
+        updateDiceDisplay();
 
         btn_go.setOnClickListener(v-> onGoClicked());
         btn_info.setOnClickListener(v->{
