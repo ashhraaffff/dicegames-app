@@ -14,6 +14,7 @@
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
+            android:id="@+id/txt_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="This is a Die Wager Game!\n\nThe rules of the game are as follows:\n\n1. Select the wager (2 alike, 3 alike, 4 alike)\n\n2. Enter the amount that you want to wager (Make sure that you have sufficient balance!)\n\n3. Click on GO to roll the die!\n\n4. Depending on the die results and the wager amount, you will lose or gain coins, which will then be added/deducted from your Wallet.\n\n5. In order to get more coins, you can also roll the Wallet Die that gives you 5 coins on every roll of 6."

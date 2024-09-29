@@ -52,12 +52,27 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
 
     // Java language implementation
-    implementation "androidx.navigation:navigation-fragment:2.8.0"
-    implementation "androidx.navigation:navigation-ui:2.8.0"
+    implementation "androidx.navigation:navigation-fragment:2.8.1"
+    implementation "androidx.navigation:navigation-ui:2.8.1"
 
     // Testing Navigation
-    androidTestImplementation "androidx.navigation:navigation-testing:2.8.0"
+    androidTestImplementation "androidx.navigation:navigation-testing:2.8.1"
 
     // needed for instantTaskExecutorRule
     androidTestImplementation "androidx.arch.core:core-testing:2.2.0"
+
+    // AndroidX Test Core library
+    androidTestImplementation 'androidx.test:core:1.5.0'
+
+    // AndroidX Test Runner
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+
+    // AndroidX Test Rules
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+
+    // AndroidX Test Espresso
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    // AndroidX Test JUnit
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
 }
