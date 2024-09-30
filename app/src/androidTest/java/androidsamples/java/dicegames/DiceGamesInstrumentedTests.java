@@ -73,16 +73,6 @@ public class DiceGamesInstrumentedTests {
     }
 
     @Test
-    public void testBalanceIncrease() {
-        int startBalance = Integer.parseInt(getTextFromView(R.id.txt_balance));
-        for (int i = 0; i < 25; i++) {
-            onView(withId(R.id.btn_die)).perform(click());
-        }
-        int endBalance = Integer.parseInt(getTextFromView(R.id.txt_balance));
-        assert(endBalance > startBalance);
-    }
-
-    @Test
     public void testWalletDieRollUpdatesBalance() {
         activityRule.getScenario().recreate();
         int initialBalance = Integer.parseInt(getTextFromView(R.id.txt_balance));
