@@ -44,7 +44,7 @@ Each mode offers increasing rewards and risks, creating a more thrilling and eng
 
 4. **GamePlay and Testing**:
     - Added and passed new **JUnit tests** for both `GamePlay` and `MockedGamePlay`, ensuring the game mechanics work as intended. 
-    - Thoroughly tested the wager functionality and coin balance persistance.
+    - Thoroughly tested the wager functionality, coin balance and game results updates.
   
 5. **NavGraph and InfoFragment**:
     - Added a new `InfoFragment` to display game rules and connected it to the navigation flow via `NavGraph`.
@@ -63,7 +63,7 @@ Each mode offers increasing rewards and risks, creating a more thrilling and eng
         }
 8. **Bug Fixes and Improvements**:
     - Fixed a toast message to correctly announce the game results.
-    - Persisted dice values and ensured consistent behavior when switching between different fragments and orientations,and loading an initial dice value of 5 (0 being the default before).
+    - Persisted dice values and ensured consistent behavior when switching between different fragments and orientations, and loading an initial die value for all dice.
   
 9. **Accessibility and Espresso Tests**:
     - Added **Espresso tests** to verify accessibility compliance and interaction with UI elements, ensuring the app is accessible to all users.
@@ -83,14 +83,13 @@ We followed a **Test-Driven Development (TDD)** approach throughout the project.
     - Mocked scenarios were used to ensure edge cases like invalid wagers and unexpected game states were handled properly.
 
 2. **Instrumented Tests**:
-    - Added instrumented tests for the UI and interaction between the fragments.
+    - Created instrumented tests to validate the UI and interactions between fragments, ensuring proper navigation and data flow.
     - Used **Mockito** to simulate a mock die and control the behavior during gameplay, allowing us to test specific scenarios.
     - Leveraged the `@Spy` annotation in our tests to partially mock objects while preserving the real object’s behavior for certain methods, making it easier to validate interactions and results.
     - Tests ensured that buttons, text fields, and other UI elements behaved correctly, and game outcomes updated as expected.
 
 3. **Bug Fixes and Verification**:
-    - After implementing new functionality, we rigorously tested for potential bugs, ensuring everything from wallet balance persistence to toast messages worked as intended.
-    
+   - After implementing new functionality, we rigorously tested for potential bugs, ensuring that everything from wallet balance persistence to UI updates worked as intended.
 
 4. **Accessibility Testing**:
     - Integrated accessibility tests with **Espresso**, ensuring compliance with color contrast, font size, and other accessibility standards.
@@ -106,8 +105,6 @@ We followed a **Test-Driven Development (TDD)** approach throughout the project.
     - Upon using the Accessibility Scanner we received the following feedbacks for improvements on our UI in order to make it even more accessible to differently abled users:
 ![Screenshot From 2024-10-02 21-02-38](https://github.com/user-attachments/assets/7568afd7-de88-46a9-b7b3-b5f7e79c1843)
 ![image](https://github.com/user-attachments/assets/1a95c525-6502-4400-a0a8-c74d39ac2e40)
-
-
 
 
     - These are some of the images containing the analysis of the UI as done by the Accessibility Scanner. Similarly we had a total of **12 screens** analysed.
