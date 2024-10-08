@@ -3,7 +3,7 @@ package androidsamples.java.dicegames;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-
+import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -54,8 +54,18 @@ public class WalletFragment extends Fragment {
             Log.d(TAG, "Going to GamesFragment");
             Navigation.findNavController(view).navigate(R.id.action_walletFragment_to_gamesFragment);
         });
+
+        view.findViewById(R.id.btn_share).setOnClickListener(v -> shareScore());
     }
 
+    private void shareScore() {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("text/plain");
+        intent.putExtra(Intent.EXTRA_SUBJECT, "Look! I have " + vm.getBalance() + " coins in my Dice Games Wallet!");
+        if (intent.resolveActivity(requireActivity().getPackageManager()) != null) {
+            startActivity(Intent.createChooser(intent, "Share your score"));
+        }
+    }
 
     /**
      * Updates the UI with the current die value and balance from the ViewModel.
